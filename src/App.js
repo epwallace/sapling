@@ -16,6 +16,10 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <main>
+          <h2>your collection</h2>
+          <h2>add a plant</h2>
+        </main>
         <Footer />
       </div>
     );
