@@ -6,6 +6,7 @@ import './App.css';
 // layout components
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
+import PlantForm from './components/PlantForm.js';
 import Tile from './components/Tile.js';
 
 // set root element so react-modal can apply aria-hidden properly
@@ -108,18 +109,13 @@ class App extends Component {
             <h2>add a plant</h2>
 
             {/* form for submitting a new plant */}
-            {/* TODO: turn form into a component */}
-            <form action='submit'>
+            <PlantForm
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              plantName={this.state.plantName}
+              plantNotes={this.state.plantNotes}
+            />
 
-              <label htmlFor='plantName'>plant name:</label>
-              <input type='text' name='plantName' id='plantName' onChange={this.handleChange} value={this.state.plantName} />
-
-              <label htmlFor='plantNotes'>plant notes:</label>
-              <textarea name='plantNotes' id='plantNotes' onChange={this.handleChange} value={this.state.plantNotes}></textarea>
-
-              {/* form submission button */}
-              <button onClick={this.handleSubmit}>Submit</button>
-            </form>
           </section>
 
         </main>
