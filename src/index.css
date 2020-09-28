@@ -12,6 +12,12 @@ button, input, textarea {
   font-family: inherit
 }
 
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: inherit;
+}
+
 body {
   font-family: 'Raleway', sans-serif;
   font-size: 125%;
@@ -101,6 +107,31 @@ h2::before {
 main {
   flex: 1 0 200px;
   min-height: 100px;
+}
+
+.tilesContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 200px;
+  grid-auto-rows: 200px;
+  grid-gap: 50px;
+}
+
+.tile {
+  background-color: #6c4b33;
+  font-size: 1.5rem;  /* TODO: handle font size */
+  padding: 10px;
+  border-radius: 20px;
+
+  /* alignment */
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.tile:hover {
+  background-color: #b2d132;
+  color: #062836;
 }
 
 /* FORM STYLES ---------------------------------------------------------------*/
