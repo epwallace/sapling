@@ -119,6 +119,8 @@ main {
 
 .tile {
   background-color: #6c4b33;
+  color: #b2d132;
+  font-weight: bold;
   font-size: 1.5rem;  /* TODO: handle font size */
   padding: 10px;
   border-radius: 20px;

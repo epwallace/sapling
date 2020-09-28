@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
 const Tile = (props) => {
+
     return(
-        <a href="#" className="tile">
-            <p>{props.plantName}</p>
-        </a>
+        <button onClick={props.clickHandler} className="tile">
+            {props.plantName}
+        </button>
     )
 }
 
