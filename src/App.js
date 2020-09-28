@@ -17,14 +17,12 @@ class App extends Component {
 
   handleClick = (event) => {
     event.preventDefault();
-    console.log('click handled')
   };
 
   handleChange = (event) => {
     this.setState ({
       [event.target.id]: event.target.value,
     });
-    console.log('change handled', event.target)
   };
 
   render() { 
