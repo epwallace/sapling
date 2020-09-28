@@ -45,7 +45,7 @@ class App extends Component {
               <input type='text' name='plantName' id='plantName' onChange={this.handleChange} value={this.state.plantName} />
 
               <label htmlFor='plantNotes'>plant notes:</label>
-              <input type='text' name='plantNotes' id='plantNotes' onChange={this.handleChange} value={this.state.plantNotes} />
+              <textarea name='plantNotes' id='plantNotes' onChange={this.handleChange} value={this.state.plantNotes}></textarea>
 
               {/* form submission button */}
               <button onClick={this.handleClick}>Submit</button>
