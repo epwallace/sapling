@@ -12,11 +12,49 @@ class App extends Component {
     this.state = {
       plantName: '',
       plantNotes: '',
+      plants: [],
     }
   }
 
-  handleClick = (event) => {
+  componentDidMount() {
+    // connect to firebase
+    const dbRef = firebase.database().ref();
+    dbRef.on('value', (response) => {
+      const newState = [];
+      const data = response.val();
+
+      // index plant information with firebase key
+      for (const key in data) {
+        newState.push({
+          key: key,
+          plantName: data[key].plantName,
+          plantNotes: data[key].plantNotes,
+        });
+      }
+
+      // pass firebase data to App state
+      this.setState({
+        plants: newState,
+      });
+    });
+  }
+
+  handleSubmit = (event) => {
+    // prevent page refresh
     event.preventDefault();
+
+    // connect to firebase and send user input
+    const dbRef = firebase.database().ref();
+    dbRef.push({
+      plantName: this.state.plantName,
+      plantNotes: this.state.plantNotes,
+    });
+
+    // clear input from text boxes
+    this.setState({
+      plantName: '',
+      plantNotes: ''
+    })
   };
 
   handleChange = (event) => {
@@ -33,12 +71,25 @@ class App extends Component {
         <main>
           <section className="collection wrapper">
             <h2>your collection</h2>
+
+            {/* TODO: create a component for these tiles */}
+            <ul>
+              {this.state.plants.map((plant) => {
+                return(
+                  <li key={plant.key}>
+                    <p>{plant.plantName}</p>
+                    <p>{plant.plantNotes}</p>
+                  </li>
+                )
+              })}
+            </ul>
           </section>
 
           <section className="addNewPlant wrapper">
             <h2>add a plant</h2>
 
             {/* form for submitting a new plant */}
+            {/* TODO: turn form into a component */}
             <form action='submit'>
 
               <label htmlFor='plantName'>plant name:</label>
@@ -48,7 +99,7 @@ class App extends Component {
               <textarea name='plantNotes' id='plantNotes' onChange={this.handleChange} value={this.state.plantNotes}></textarea>
 
               {/* form submission button */}
-              <button onClick={this.handleClick}>Submit</button>
+              <button onClick={this.handleSubmit}>Submit</button>
             </form>
           </section>
 
