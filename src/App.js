@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import firebase from './firebase.js';
+import ReactModal from 'react-modal';
 import './App.css';
 
 // layout components
@@ -7,10 +8,14 @@ import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 import Tile from './components/Tile.js';
 
+// set root element so react-modal can apply aria-hidden properly
+ReactModal.setAppElement('#root');
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
+      modalActive: false,
       plantName: '',
       plantNotes: '',
       plants: [],
@@ -63,10 +68,23 @@ class App extends Component {
       [event.target.id]: event.target.value,
     });
   };
+  
+  // close modal by changing modalOpen to false
+  handleRequestClose = () => {
+    this.setState({
+      modalActive: false,
+    })
+  }
 
   render() { 
     return (
       <div className="App">
+        <ReactModal
+          isOpen={this.state.modalActive}
+          onRequestClose={this.handleRequestClose}
+          className='modal'
+          overlayClassName='overlay'
+          />
         <Header />
         
         <main>
@@ -74,9 +92,13 @@ class App extends Component {
             <h2>your collection</h2>
 
             <div className='tilesContainer'>
+              {/* TODO: clickHandler method needs to set the "active plant" in the state so information can be displayed in the modal */}
               {this.state.plants.map((plant) => {
                 return(
-                  <Tile plantName={plant.plantName} />
+                  <Tile
+                  plantName={plant.plantName}
+                  clickHandler={() => this.setState({modalActive: true})}
+                  />
                 )
               })}
             </div>
