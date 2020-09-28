@@ -29,16 +29,25 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        
         <main>
-          <h2>your collection</h2>
-          
-          <section className="addNewPlant">
+          <section className="collection wrapper">
+            <h2>your collection</h2>
+          </section>
+
+          <section className="addNewPlant wrapper">
             <h2>add a plant</h2>
+
+            {/* form for submitting a new plant */}
             <form action='submit'>
+
               <label htmlFor='plantName'>plant name:</label>
-              <input type='text' id='plantName' onChange={this.handleChange} value={this.state.plantName} />
+              <input type='text' name='plantName' id='plantName' onChange={this.handleChange} value={this.state.plantName} />
+
               <label htmlFor='plantNotes'>plant notes:</label>
-              <input type='text' id='plantNotes' onChange={this.handleChange} value={this.state.plantNotes} />
+              <input type='text' name='plantNotes' id='plantNotes' onChange={this.handleChange} value={this.state.plantNotes} />
+
+              {/* form submission button */}
               <button onClick={this.handleClick}>Submit</button>
             </form>
           </section>
