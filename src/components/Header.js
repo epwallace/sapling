@@ -4,7 +4,7 @@ class Header extends Component {
     state = {  }
     render() { 
         return (
-            <header>
+            <header className='wrapper'>
                 <h1>sapling</h1>
             </header>
         );

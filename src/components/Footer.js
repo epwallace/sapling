@@ -4,7 +4,7 @@ class Footer extends Component {
     state = {  }
     render() { 
         return (
-            <footer>
+            <footer className='wrapper'>
                 <p>Made by Evan Wallace at Juno College in 2020.</p>
             </footer>
         );
