@@ -5,6 +5,7 @@ import './App.css';
 // layout components
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
+import Tile from './components/Tile.js';
 
 class App extends Component {
   constructor() {
@@ -72,17 +73,13 @@ class App extends Component {
           <section className="collection wrapper">
             <h2>your collection</h2>
 
-            {/* TODO: create a component for these tiles */}
-            <ul>
+            <div className='tilesContainer'>
               {this.state.plants.map((plant) => {
                 return(
-                  <li key={plant.key}>
-                    <p>{plant.plantName}</p>
-                    <p>{plant.plantNotes}</p>
-                  </li>
+                  <Tile plantName={plant.plantName} />
                 )
               })}
-            </ul>
+            </div>
           </section>
 
           <section className="addNewPlant wrapper">
