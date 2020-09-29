@@ -72,6 +72,15 @@ class App extends Component {
       [event.target.id]: event.target.value,
     });
   };
+
+  // when a user clicks a tile, launch a modal with the relevant plant entry
+  handlePlantSelection = (plant) => {
+    this.setState({
+      currentPlant: plant,
+      modalType: 'plantPage',
+      modalActive: true,
+    })
+  }
   
   // close modal by changing modalOpen to false
   handleRequestClose = () => {
@@ -133,8 +142,9 @@ class App extends Component {
               {this.state.plants.map((plant) => {
                 return(
                   <Tile
+                  key={plant.key}
                   plantName={plant.plantName}
-                  clickHandler={() => this.setState({modalActive: true})}
+                  clickHandler={() => this.handlePlantSelection(plant)}
                   />
                 )
               })}
