@@ -176,14 +176,16 @@ class App extends Component {
 
           <section className="addNewPlant wrapper">
             <h2>add a plant</h2>
-
-            {/* form for submitting a new plant */}
-            <PlantForm
-              handleChange={this.handleChange}
-              handleSubmit={this.handleSubmit}
-              plantName={this.state.inputName}
-              plantNotes={this.state.inputNotes}
-            />
+            
+            {/* TODO: style this button */}
+            {/* launch form for submitting a new plant */}
+            <button onClick={() => {
+              // TODO: write a proper handler for this button
+              this.setState({
+                modalActive: true,
+                modalType: 'newPlant'
+              })
+            }}>click</button>
 
           </section>
 
