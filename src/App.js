@@ -19,9 +19,13 @@ class App extends Component {
     this.state = {
       modalActive: false,
       modalType: '',
-      currentPlant: {},
-      plantName: '',
-      plantNotes: '',
+      currentPlant: {
+        plantName: '',
+        plantNotes: '',
+        key: '',
+      },
+      inputName: '',
+      inputNotes: '',
       plants: [],
     }
   }
@@ -56,14 +60,14 @@ class App extends Component {
     // connect to firebase and send user input
     const dbRef = firebase.database().ref();
     dbRef.push({
-      plantName: this.state.plantName,
-      plantNotes: this.state.plantNotes,
+      plantName: this.state.inputName,
+      plantNotes: this.state.inputNotes,
     });
 
     // clear input from text boxes
     this.setState({
-      plantName: '',
-      plantNotes: ''
+      inputName: '',
+      inputNotes: '',
     })
   };
 
@@ -82,17 +86,21 @@ class App extends Component {
     })
   }
 
+  // remove an entry from the database
   handleRemove = (key) => {
-    console.log("WHOA what's happening here", key)
+    // connect to firebase and remove entry with provided key
     const dbRef = firebase.database().ref();
     dbRef.child(key).remove();
+
+    // reset state and close modal
     this.setState({
       currentPlant: {},
       modalType: '',
       modalActive: false,
     })
   }
-  
+
+  // TODO: what happens if modal is exited mid-edit?
   // close modal by changing modalOpen to false
   handleCloseModal = () => {
     this.setState({
@@ -108,17 +116,21 @@ class App extends Component {
         <PlantForm
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
-          plantName={this.state.plantName}
-          plantNotes={this.state.plantNotes}
+          plantName={this.state.inputName}
+          plantNotes={this.state.inputNotes}
+          key={null}
         />
       )
     } else if (modalType === 'editPlant') {
+      // TODO: handle editing logic; need to write handlers, deal with cancellation, etc
+      const { plantName, plantNotes, key } = this.state.currentPlant;
       return (
         <PlantForm
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
-          plantName={this.state.plantName}
-          plantNotes={this.state.plantNotes}
+          plantName={plantName}
+          plantNotes={plantNotes}
+          key={key}
         />
       )
     } else if (modalType === 'plantPage') {
@@ -169,8 +181,8 @@ class App extends Component {
             <PlantForm
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit}
-              plantName={this.state.plantName}
-              plantNotes={this.state.plantNotes}
+              plantName={this.state.inputName}
+              plantNotes={this.state.inputNotes}
             />
 
           </section>

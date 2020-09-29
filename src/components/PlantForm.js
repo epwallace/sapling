@@ -3,11 +3,11 @@ import React from 'react';
 const PlantForm = (props) => {
     return(
         <form action='submit'>
-            <label htmlFor='plantName'>plant name:</label>
-            <input type='text' name='plantName' id='plantName' onChange={props.handleChange} value={props.plantName} />
+            <label htmlFor='inputName'>plant name:</label>
+            <input type='text' name='inputName' id='inputName' onChange={props.handleChange} value={props.inputName} />
 
-            <label htmlFor='plantNotes'>plant notes:</label>
-            <textarea name='plantNotes' id='plantNotes' onChange={props.handleChange} value={props.plantNotes}></textarea>
+            <label htmlFor='inputNotes'>plant notes:</label>
+            <textarea name='inputNotes' id='inputNotes' onChange={props.handleChange} value={props.inputNotes}></textarea>
 
             {/* form submission button */}
             <button onClick={props.handleSubmit}>Submit</button>

@@ -183,22 +183,22 @@ form {
   margin: 0 auto;
 }
 
-label[for="plantName"] {
+label[for="inputName"] {
   grid-column: 1 / span 1;
   grid-row: 1 / span 1;
 }
 
-input[name="plantName"] {
+input[name="inputName"] {
   grid-column: 3 / span 3;
   grid-row: 1 / span 1;
 }
 
-label[for="plantNotes"] {
+label[for="inputNotes"] {
   grid-column: 1 / span 2;
   grid-row: 2 / span 1;
 }
 
-textarea[name="plantNotes"] {
+textarea[name="inputNotes"] {
   grid-column: 3 / span 3;
   grid-row: 2 / span 4;
 }
