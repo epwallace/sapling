@@ -93,18 +93,21 @@ class App extends Component {
     dbRef.child(key).remove();
 
     // reset state and close modal
-    this.setState({
-      currentPlant: {},
-      modalType: '',
-      modalActive: false,
-    })
+    handleCloseModal();
   }
 
-  // TODO: what happens if modal is exited mid-edit?
-  // close modal by changing modalOpen to false
+  // close modal and restore any modified state attributes to default values
   handleCloseModal = () => {
     this.setState({
       modalActive: false,
+      modalType: '',
+      currentPlant: {
+        plantName: '',
+        plantNotes: '',
+        key: '',
+      },
+      inputName: '',
+      inputNotes: '',
     })
   }
 
@@ -161,7 +164,6 @@ class App extends Component {
             <h2>your collection</h2>
 
             <div className='tilesContainer'>
-              {/* TODO: clickHandler method needs to set the "active plant" in the state so information can be displayed in the modal */}
               {this.state.plants.map((plant) => {
                 return(
                   <Tile
