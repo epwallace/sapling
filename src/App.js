@@ -93,7 +93,7 @@ class App extends Component {
     dbRef.child(key).remove();
 
     // reset state and close modal
-    handleCloseModal();
+    this.handleCloseModal();
   }
 
   // close modal and restore any modified state attributes to default values
