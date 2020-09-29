@@ -7,6 +7,7 @@ import './App.css';
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 import PlantForm from './components/PlantForm.js';
+import PlantPage from './components/PlantPage.js';
 import Tile from './components/Tile.js';
 
 // set root element so react-modal can apply aria-hidden properly
@@ -17,6 +18,8 @@ class App extends Component {
     super();
     this.state = {
       modalActive: false,
+      modalType: '',
+      currentPlant: {},
       plantName: '',
       plantNotes: '',
       plants: [],
@@ -77,6 +80,37 @@ class App extends Component {
     })
   }
 
+  // TODO: refactor into smaller functions
+  getModalContent = () => {
+    const { modalType } = this.state;
+    if (modalType === 'newPlant') {
+      return (
+        <PlantForm
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          plantName={this.state.plantName}
+          plantNotes={this.state.plantNotes}
+        />
+      )
+    } else if (modalType === 'editPlant') {
+      return (
+        <PlantForm
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          plantName={this.state.plantName}
+          plantNotes={this.state.plantNotes}
+        />
+      )
+    } else if (modalType === 'plantPage') {
+      return(
+        <PlantPage
+          plantName={this.state.currentPlant.plantName}
+          plantNotes={this.state.currentPlant.plantNotes}
+        />
+      )
+    }
+  }
+
   render() { 
     return (
       <div className="App">
@@ -85,7 +119,9 @@ class App extends Component {
           onRequestClose={this.handleRequestClose}
           className='modal'
           overlayClassName='overlay'
-          />
+        >
+          {this.getModalContent()}
+        </ReactModal>
         <Header />
         
         <main>

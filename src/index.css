@@ -227,6 +227,21 @@ form button {
   }
 }
 
+/* PLANT PAGE ----------------------------------------------------------------*/
+.plantPage {
+  padding: 10px;
+}
+
+.plantPage h3 {
+  font-size: 3rem;
+}
+
+.plantPage p {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  white-space: pre-line;
+}
+
 /* FOOTER STYLES -------------------------------------------------------------*/
 footer {
   padding: 20px 0;
