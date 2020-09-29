@@ -94,7 +94,7 @@ class App extends Component {
   }
   
   // close modal by changing modalOpen to false
-  handleRequestClose = () => {
+  handleCloseModal = () => {
     this.setState({
       modalActive: false,
     })
@@ -136,7 +136,7 @@ class App extends Component {
       <div className="App">
         <ReactModal
           isOpen={this.state.modalActive}
-          onRequestClose={this.handleRequestClose}
+          onRequestClose={this.handleCloseModal}
           className='modal'
           overlayClassName='overlay'
         >
