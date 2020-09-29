@@ -255,28 +255,41 @@ footer p {
   margin: 0 auto;
 }
 
-/* MODAL STYLES -----------------------------------------------------------*/
+/* MODAL STYLES --------------------------------------------------------------*/
 .modal {
+  /* appearance */
   background-color: #6c4b33;
-  border-radius: 20px;
 
-  /* dimensions */
-  width: 50%;
-  height: 50%;
+  /* box properties */
+  width: 70%;
+  height: 70%;
+  padding: 50px;
+  border-radius: 20px;
+  outline: none;
 
   /* positioning */
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  /* flex properties */
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 .overlay {
+  /* appearance */
   background-color: rgba(6, 40, 55, 0.9);
-  position: fixed;
-  top: 0;
+
+  /* box properties */
   width: 100%;
   height: 100%;
+
+  /* positioning */
+  position: fixed;
+  top: 0;
 }
 
 /* stop background from scrolling when modal is active */
