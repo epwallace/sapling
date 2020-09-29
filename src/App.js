@@ -81,6 +81,17 @@ class App extends Component {
       modalActive: true,
     })
   }
+
+  handleRemove = (key) => {
+    console.log("WHOA what's happening here", key)
+    const dbRef = firebase.database().ref();
+    dbRef.child(key).remove();
+    this.setState({
+      currentPlant: {},
+      modalType: '',
+      modalActive: false,
+    })
+  }
   
   // close modal by changing modalOpen to false
   handleRequestClose = () => {
@@ -111,10 +122,10 @@ class App extends Component {
         />
       )
     } else if (modalType === 'plantPage') {
-      return(
+      return (
         <PlantPage
-          plantName={this.state.currentPlant.plantName}
-          plantNotes={this.state.currentPlant.plantNotes}
+          plant={this.state.currentPlant}
+          handleRemove={() => this.handleRemove(this.state.currentPlant.key)}
         />
       )
     }
