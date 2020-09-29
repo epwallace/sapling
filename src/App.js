@@ -87,7 +87,7 @@ class App extends Component {
   }
 
   // remove an entry from the database
-  handleRemove = (key) => {
+  handleDelete = (key) => {
     // connect to firebase and remove entry with provided key
     const dbRef = firebase.database().ref();
     dbRef.child(key).remove();
@@ -137,7 +137,7 @@ class App extends Component {
       return (
         <PlantPage
           plant={this.state.currentPlant}
-          handleRemove={() => this.handleRemove(this.state.currentPlant.key)}
+          handleDelete={() => this.handleDelete(this.state.currentPlant.key)}
         />
       )
     }

@@ -7,7 +7,7 @@ const PlantPage = (props) => {
             <h3>{plantName}</h3>
             <p>{plantNotes}</p>
 
-            <button onClick={props.handleRemove} className="deleteButton">
+            <button onClick={props.handleDelete} className="deleteButton">
                 delete me
             </button>
 
