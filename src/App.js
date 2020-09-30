@@ -53,7 +53,13 @@ class App extends Component {
     });
   }
 
-  handleSubmit = (event) => {
+  // launches the new entry modal
+  startNewEntry = (plant) => {
+    this.setState({
+      modalActive: true,
+      modalType: 'newPlant'
+    })
+  }
     // prevent page refresh
     event.preventDefault();
 
@@ -208,13 +214,7 @@ class App extends Component {
             </div>
 
             {/* launch form for submitting a new plant */}
-            <button className='addPlantButton' onClick={() => {
-              // TODO: write a proper handler for this button
-              this.setState({
-                modalActive: true,
-                modalType: 'newPlant'
-              })
-            }}>
+            <button className='addPlantButton' onClick={this.startNewEntry}>
               add a plant
             </button>
           </section>
