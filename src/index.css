@@ -179,6 +179,8 @@ main {
 .tile {
   /* appearance */
   background-color: #6c4b33;
+  background: linear-gradient(#6c4b33 0%, #61432D 100%);
+  box-shadow: inset 0px 2px 0px #7A5D47, 0px 10px 0px #4B3423;
   color: #b2d132;
 
   /* text properties */
@@ -193,11 +195,18 @@ main {
   /* alignment */
   display: flex;
   align-items: center;
+
+  /* positioning */
+  position: relative;
+  top: 0px;
+
+  transition: top 300ms linear, box-shadow 300ms linear;
 }
 
 .tile:hover {
-  background-color: #b2d132;
-  color: #062836;
+  box-shadow: inset 0px 3px 0px #7A5D47, 0px 2px 0px #4B3423;
+  top: 5px;
+  transition: top 400ms linear, box-shadow 400ms linear;
 }
 
 .tile p {
