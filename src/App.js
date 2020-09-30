@@ -124,8 +124,8 @@ class App extends Component {
     // restore plant page modal
     this.setState({
       // update currentPlant with the newest information
-      // TODO: is there a way to do this automatically?
       currentPlant: {
+        key: key,
         plantName: this.state.inputName,
         plantNotes: this.state.inputNotes,
       },
