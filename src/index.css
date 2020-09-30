@@ -33,9 +33,10 @@ body {
   grid-template-rows: auto auto auto;
 }
 
-/* transition background color when hovering on any button */
-button:hover {
-  transition: background-color 500ms linear;
+/* add focus outline to buttons for accessible keyboard navigation */
+button:focus {
+  outline: 2px dotted;
+  outline-offset: 10px;
 }
 
 code {
@@ -366,15 +367,11 @@ form button {
   display: block;
 }
 
-.plantPage button:hover {
+.plantPage button:hover,
+.plantPage button:focus {
   background-color: #b2d132;
   color: #062836;
   box-shadow: 5px 5px 0 0 #062836;
-}
-
-.plantPage button:focus {
-  outline: 2px dotted;
-  outline-offset: 10px;
 }
 
 /* FOOTER STYLES -------------------------------------------------------------*/
