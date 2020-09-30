@@ -4,13 +4,13 @@ const PlantForm = (props) => {
     return(
         <form action='submit'>
             <label htmlFor='inputName'>plant name:</label>
-            <input type='text' name='inputName' id='inputName' onChange={props.handleChange} value={props.inputName} />
+            <input type='text' name='inputName' id='inputName' onChange={props.handleChange} value={props.plantName} />
 
             <label htmlFor='inputNotes'>plant notes:</label>
-            <textarea name='inputNotes' id='inputNotes' onChange={props.handleChange} value={props.inputNotes}></textarea>
+            <textarea name='inputNotes' id='inputNotes' onChange={props.handleChange} value={props.plantNotes}></textarea>
 
             {/* form submission button */}
-            <button className='raisedButton greenButton' onClick={(event) => {
+            <button type="button" className='raisedButton greenButton' onClick={(event) => {
                 // prevent page refresh
                 event.preventDefault();
 

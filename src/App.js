@@ -169,8 +169,8 @@ class App extends Component {
         <PlantForm
           handleChange={this.handleChange}
           handleSubmit={() => this.submitEditedEntry(key)}
-          inputName={this.state.inputName}
-          inputNotes={this.state.inputNotes}
+          plantName={this.state.inputName}
+          plantNotes={this.state.inputNotes}
         />
       )
     } else if (modalType === 'plantPage') {
