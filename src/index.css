@@ -21,6 +21,7 @@ a {
 body {
   font-family: 'Raleway', sans-serif;
   font-size: 125%;
+  line-height: 1.6;
 
   background-color: #6c4b33;
   background-color: #062836;
@@ -42,6 +43,13 @@ code {
   margin: 0 auto;
 }
 
+/* give content more space on smaller screens */
+@media (max-width: 800px) {
+  .wrapper {
+    width: 90%;
+  }
+}
+
 /* HEADER STYLES -------------------------------------------------------------*/
 header {
   display: flex;
@@ -58,13 +66,20 @@ h1 {
   margin-bottom: 100px;
 }
 
+/* center h1 on smaller screens */
+@media (max-width: 800px) {
+  h1 {
+    margin: 20px auto 100px auto;
+  }
+}
+
 /* brown underline */
 h1::before {
   position: absolute;
   content: '';
-  height: 20%;
+  height: 10%;
   width: calc(100% + 20px);
-  bottom: 0;
+  bottom: 20%;
   left: -10px;
   background-color: #6c4b33;
   z-index: -1;
@@ -77,18 +92,17 @@ h1::after {
   height: clamp(1rem, 0.1429rem + 4.7619vw, 3rem);
   position: absolute;
   content: '';
-  left: 55.5%;
+  left: 55.2%;
+  top: 19%;
 }
 
 /* SUBHEADING STYLES ---------------------------------------------------------*/
-/* subheading text */
 h2 {
   font-family: 'Montserrat', sans-serif;
   /* clamp technique inspired by https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/ */
   font-size: clamp(1.8rem, 1.0000rem + 5.0000vw, 4rem);
   position: relative;
   margin-top: 20px;
-  margin-bottom: 100px;
   width: max-content;
 }
 
@@ -140,6 +154,7 @@ main {
   grid-template-rows: 200px;
   grid-auto-rows: 200px;
   grid-gap: 50px;
+  margin: 100px 0;
 }
 
 .tile {
@@ -204,8 +219,7 @@ form {
   grid-template-columns: 1fr 20px 1fr 1fr 1fr;
   grid-template-rows: repeat(6, 1fr);
   grid-gap: 20px;
-  width: 80%;
-  margin: 0 auto;
+  width: 100%;
 }
 
 label[for="inputName"] {
