@@ -106,9 +106,11 @@ code {
   }
 }
 
-/* HEADER STYLES -------------------------------------------------------------*/
+/* HEADER & HEADING STYLES --------------------------------------------------*/
 header {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   grid-row: 1;
 }
 
@@ -119,15 +121,19 @@ h1 {
   font-size: clamp(4rem, 1.4286rem + 14.2857vw, 10rem);
   position: relative;
   margin-top: 20px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
-/* center h1 on smaller screens */
-@media (max-width: 800px) {
-  h1 {
-    margin: 20px auto 100px auto;
-  }
+header p {
+  /* box properties */
+  width: 80%;
+  margin-bottom: 100px;
+
+  /* text */
+  text-align: center;
+  font-size: clamp(1rem, 0.8182rem + 1.1364vw, 1.5rem);
 }
+
 
 /* brown underline */
 h1::before {
@@ -152,7 +158,6 @@ h1::after {
   top: 19%;
 }
 
-/* SUBHEADING STYLES ---------------------------------------------------------*/
 h2 {
   font-family: 'Montserrat', sans-serif;
   /* clamp technique inspired by https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/ */
@@ -160,13 +165,6 @@ h2 {
   position: relative;
   margin-top: 20px;
   width: max-content;
-}
-
-/* center h2 on smaller screens */
-@media (max-width: 800px) {
-  h2 {
-    margin: 20px auto 100px auto;
-  }
 }
 
 /* brown underline */
@@ -188,6 +186,22 @@ h2::before {
   /* positioning */
   margin: 0 auto;
 }
+
+/* adjust heading spacing on smaller screens */
+@media (max-width: 800px) {
+  h1 {
+    margin: 20px auto 50px auto;
+  }
+
+  h2 {
+    margin: 20px auto 25px auto;
+  }
+
+  header p {
+    margin-bottom: 50px;
+  }
+}
+
 
 /* MAIN SECTION STYLES -------------------------------------------------------*/
 main {
