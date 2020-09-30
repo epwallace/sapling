@@ -231,7 +231,7 @@ class App extends Component {
             </div>
 
             {/* --- 'add a new plant' button --- */}
-            <button className='addPlantButton brownButton' onClick={this.startNewEntry}>
+            <button className='addPlantButton raisedButton brownButton' onClick={this.startNewEntry}>
               add a new plant
             </button>
           </section>
