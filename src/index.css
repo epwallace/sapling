@@ -162,6 +162,13 @@ h2 {
   width: max-content;
 }
 
+/* center h2 on smaller screens */
+@media (max-width: 800px) {
+  h2 {
+    margin: 20px auto 100px auto;
+  }
+}
+
 /* brown underline */
 h2::before {
   position: absolute;
@@ -174,28 +181,12 @@ h2::before {
 }
 
 .addPlantButton {
-  /* appearance */
-  background-color: #6c4b33;
-  color: #b2d132;
-
   /* text */
   font-family: 'Montserrat', sans-serif;
   font-size: clamp(1rem, 0.8182rem + 1.1364vw, 1.5rem);
 
-  /* box properties */
-  width: max-content;
-  padding: 20px;
-  border-radius: 20px;
-
   /* positioning */
-  display: block;
   margin: 0 auto;
-}
-
-.addPlantButton:hover {
-  background-color: #b2d132;
-  color: #062836;
-  box-shadow: 5px 5px 0 0 #6c4b33;
 }
 
 /* MAIN SECTION STYLES -------------------------------------------------------*/
@@ -230,36 +221,6 @@ main {
   /* text properties */
   font-weight: bold;
   font-size: clamp(1rem, 0.8182rem + 1.1364vw, 1.5rem);
-  text-align: center;
-}
-
-.brownButton {
-  /* appearance */
-  background-color: #6c4b33;
-  background: linear-gradient(#6c4b33 0%, #61432D 100%);
-  box-shadow: inset 0px 2px 0px #7A5D47, 0px 10px 0px #4B3423;
-  color: #b2d132;
-
-  /* box properties */
-  padding: 10px;
-  border-radius: 20px;
-
-  /* alignment */
-  display: flex;
-  align-items: center;
-
-  /* positioning */
-  position: relative;
-  top: 0px;
-
-  /* animation */
-  transition: top 300ms linear, box-shadow 300ms linear;
-}
-
-.brownButton:hover {
-  box-shadow: inset 0px 3px 0px #7A5D47, 0px 2px 0px #4B3423;
-  top: 5px;
-  transition: top 400ms linear, box-shadow 400ms linear;
 }
 
 .tile p {
@@ -272,12 +233,12 @@ input,
 textarea,
 form button {
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 input,
 textarea {
-  background-color: transparent;
+  background-color: rgba(6, 40, 54, 0.3);
   color: #b2d132;
   border: 3px solid;
   font-family: courier;
@@ -293,14 +254,6 @@ textarea:focus {
 form button {
   width: 30%;
   justify-self: center;
-  background-color: #b2d132;
-  color: #062836
-}
-
-form button:hover,
-form button:focus {
-  /* TODO: decide on a style/animation */
-  background-color: #b2d132;
 }
 
 /* grid positioning */
@@ -351,6 +304,10 @@ form button {
     margin-left: 5%;
   }
 
+  textarea {
+    height: 40%;
+  }
+
   form button {
     margin: 0 auto;
   }
@@ -367,6 +324,7 @@ form button {
   display: flex;
   flex-direction: column;
 }
+
 
 .plantPage h3 {
   font-size: clamp(1.5rem, 0.9545rem + 3.4091vw, 3rem);
@@ -400,10 +358,6 @@ form button {
 }
 
 .plantPage button {
-  /* appearance */
-  background-color: #062836;
-  color: #b2d132;
-
   /* text */
   font-family: 'Montserrat', sans-serif;
   font-size: clamp(1rem, 0.8182rem + 1.1364vw, 1.5rem);
@@ -412,18 +366,6 @@ form button {
   width: max-content;
   padding: 20px;
   margin: 20px;
-  border-radius: 20px;
-  box-shadow: 3px 3px 0 0 #b2d132;
-
-  /* positioning */
-  display: block;
-}
-
-.plantPage button:hover,
-.plantPage button:focus {
-  background-color: #b2d132;
-  color: #062836;
-  box-shadow: 5px 5px 0 0 #062836;
 }
 
 /* FOOTER STYLES -------------------------------------------------------------*/
@@ -476,7 +418,16 @@ footer span {
   position: fixed;
   right: 20px;
   top: 20px;
+} 
+
+/* move plantPage and form away from closeButton on small screens */
+@media (max-width: 600px) {
+  .plantPage,
+  form {  
+    margin-top: 25px;
+  }
 }
+
 
 @media (max-width: 600px) {
   .modal {
