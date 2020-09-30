@@ -269,7 +269,14 @@ form button {
 
 /* PLANT PAGE ----------------------------------------------------------------*/
 .plantPage {
+  /* box properties */
+  width: 100%;
+  height: 100%;
   padding: 10px;
+
+  /* flex properties */
+  display: flex;
+  flex-direction: column;
 }
 
 .plantPage h3 {
