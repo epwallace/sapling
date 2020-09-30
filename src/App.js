@@ -217,6 +217,7 @@ class App extends Component {
           <section className="collection wrapper">
             <h2>your collection</h2>
 
+            {/* --- tiles for each plant entry are rendered here --- */}
             <div className='tilesContainer'>
               {this.state.plants.map((plant) => {
                 return(
@@ -229,7 +230,7 @@ class App extends Component {
               })}
             </div>
 
-            {/* launch form for submitting a new plant */}
+            {/* --- 'add a new plant' button --- */}
             <button className='addPlantButton' onClick={this.startNewEntry}>
               add a new plant
             </button>
