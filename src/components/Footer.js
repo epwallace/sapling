@@ -5,7 +5,7 @@ class Footer extends Component {
     render() { 
         return (
             <footer className='wrapper'>
-                <p>Made by Evan Wallace at Juno College in 2020.</p>
+                <p><span>Made by Evan Wallace</span> <span>at Juno College in 2020.</span></p>
             </footer>
         );
     }

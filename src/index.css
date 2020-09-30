@@ -276,8 +276,12 @@ footer {
 
 /* 'made by' text */
 footer p {
-  width: max-content;
-  margin: 0 auto;
+  font-size: clamp(1rem, 0.6364rem + 2.2727vw, 2rem);
+  text-align: center;
+}
+
+footer span {
+  white-space: nowrap;
 }
 
 /* MODAL STYLES --------------------------------------------------------------*/
