@@ -33,6 +33,55 @@ body {
   grid-template-rows: auto auto auto;
 }
 
+/* BUTTON STYLES -------------------------------------------------------------*/
+.brownButton {
+  /* appearance */
+  background-color: #6c4b33;
+  background: linear-gradient(#6c4b33 0%, #61432D 100%);
+  box-shadow: inset 0px 2px 0px #7A5D47, 0px 10px 0px #4B3423;
+  color: #b2d132;
+}
+
+.brownButton:hover {
+  box-shadow: inset 0px 3px 0px #7A5D47, 0px 2px 0px #4B3423;
+}
+
+.greenButton {
+  /* appearance */
+  background-color: #b2d132;
+  background: linear-gradient(#b2d132 0%, #A0BC2D 100%);
+  box-shadow: inset 0px 2px 0px #C1DA5B, 0px 10px 0px #7C9223 ;
+  color: #062836;
+}
+
+.greenButton:hover {
+  box-shadow: inset 0px 3px 0px #C1DA5B, 0px 2px 0px #7C9223 ;
+}
+
+.raisedButton {
+  /* box properties */
+  padding: 10px;
+  border-radius: 20px;
+
+  /* alignment */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* positioning */
+  position: relative;
+  top: 0px;
+
+  /* animation */
+  transition: top 300ms linear, box-shadow 300ms linear;
+}
+
+.raisedButton:hover {
+  top: 5px;
+  transition: top 400ms linear, box-shadow 400ms linear;
+}
+
+
 /* add focus outline to buttons for accessible keyboard navigation */
 button:focus {
   outline: 2px dotted;
@@ -131,7 +180,7 @@ h2::before {
 
   /* text */
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(1.8rem, 1.0000rem + 5.0000vw, 4rem);
+  font-size: clamp(1rem, 0.8182rem + 1.1364vw, 1.5rem);
 
   /* box properties */
   width: max-content;
@@ -178,16 +227,18 @@ main {
 }
 
 .tile {
+  /* text properties */
+  font-weight: bold;
+  font-size: clamp(1rem, 0.8182rem + 1.1364vw, 1.5rem);
+  text-align: center;
+}
+
+.brownButton {
   /* appearance */
   background-color: #6c4b33;
   background: linear-gradient(#6c4b33 0%, #61432D 100%);
   box-shadow: inset 0px 2px 0px #7A5D47, 0px 10px 0px #4B3423;
   color: #b2d132;
-
-  /* text properties */
-  font-weight: bold;
-  font-size: clamp(1rem, 0.8182rem + 1.1364vw, 1.5rem);
-  text-align: center;
 
   /* box properties */
   padding: 10px;
@@ -201,10 +252,11 @@ main {
   position: relative;
   top: 0px;
 
+  /* animation */
   transition: top 300ms linear, box-shadow 300ms linear;
 }
 
-.tile:hover {
+.brownButton:hover {
   box-shadow: inset 0px 3px 0px #7A5D47, 0px 2px 0px #4B3423;
   top: 5px;
   transition: top 400ms linear, box-shadow 400ms linear;

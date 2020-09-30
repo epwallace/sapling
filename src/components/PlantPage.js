@@ -8,11 +8,11 @@ const PlantPage = (props) => {
             <p>{plantNotes}</p>
 
             <div className="buttonsContainer">
-                <button onClick={props.handleEdit} className="editButton">
+                <button onClick={props.handleEdit} className="raisedButton greenButton">
                     edit this plant
                 </button>
 
-                <button onClick={props.handleDelete} className="deleteButton">
+                <button onClick={props.handleDelete} className="raisedButton greenButton">
                     delete this plant
                 </button>
             </div>

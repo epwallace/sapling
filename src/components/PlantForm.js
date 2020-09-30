@@ -10,7 +10,7 @@ const PlantForm = (props) => {
             <textarea name='inputNotes' id='inputNotes' onChange={props.handleChange} value={props.inputNotes}></textarea>
 
             {/* form submission button */}
-            <button onClick={(event) => {
+            <button className='raisedButton greenButton' onClick={(event) => {
                 // prevent page refresh
                 event.preventDefault();
 
@@ -20,7 +20,7 @@ const PlantForm = (props) => {
                 } else {
                     alert("Your plant name must start with a letter and cannot exceed 30 characters.");
                 }
-            }}>Submit</button>
+            }}><p>Submit</p></button>
         </form>
     )
 }
