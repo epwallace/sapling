@@ -10,7 +10,17 @@ const PlantForm = (props) => {
             <textarea name='inputNotes' id='inputNotes' onChange={props.handleChange} value={props.inputNotes}></textarea>
 
             {/* form submission button */}
-            <button onClick={props.handleSubmit}>Submit</button>
+            <button onClick={(event) => {
+                // prevent page refresh
+                event.preventDefault();
+
+                // only submit if plantName starts with a letter and is less than 30 chars
+                if (props.plantName.match('[a-zA-z].{0,29}')) {
+                    props.handleSubmit()
+                } else {
+                    alert("Your plant name must start with a letter and cannot exceed 30 characters.");
+                }
+            }}>Submit</button>
         </form>
     )
 }
