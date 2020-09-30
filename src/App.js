@@ -53,6 +53,13 @@ class App extends Component {
     });
   }
 
+  // update state as user types into form inputs
+  handleChange = (event) => {
+    this.setState ({
+      [event.target.id]: event.target.value,
+    });
+  };
+
   // launches the new entry modal
   startNewEntry = (plant) => {
     this.setState({
@@ -75,13 +82,6 @@ class App extends Component {
 
     // reset state and close modal
     this.closeModal();
-  };
-
-  // update state as user types into form inputs
-  handleChange = (event) => {
-    this.setState ({
-      [event.target.id]: event.target.value,
-    });
   };
 
   // when a user clicks a tile, launch a modal with the relevant plant entry
@@ -152,7 +152,7 @@ class App extends Component {
     })
   }
 
-  // 
+  // read this.state.modalType to determine what content should be returned
   getModalContent = () => {
     const { modalType } = this.state;
     if (modalType === 'newPlant') {
@@ -192,6 +192,7 @@ class App extends Component {
   render() { 
     return (
       <div className="App">
+        {/* --- modal section --- */}
         <ReactModal
           isOpen={this.state.modalActive}
           onRequestClose={this.closeModal}
@@ -208,8 +209,10 @@ class App extends Component {
           {this.getModalContent()}
         </ReactModal>
 
+        {/* --- header section --- */}
         <Header />
         
+        {/* --- main section --- */}
         <main>
           <section className="collection wrapper">
             <h2>your collection</h2>
@@ -228,11 +231,12 @@ class App extends Component {
 
             {/* launch form for submitting a new plant */}
             <button className='addPlantButton' onClick={this.startNewEntry}>
-              add a plant
+              add a new plant
             </button>
           </section>
         </main>
 
+        {/* --- footer section --- */}
         <Footer />
       </div>
     );
