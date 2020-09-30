@@ -202,7 +202,7 @@ class App extends Component {
 
           {/* 'X' button for closing modal */}
           <button onClick={this.closeModal} className='closeButton'>
-            <i class="far fa-window-close"></i>
+            <i className="far fa-window-close"></i>
           </button>
 
           {/* modal content is dynamically determined by the state */}
