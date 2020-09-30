@@ -159,15 +159,20 @@ main {
 }
 
 .tile {
+  /* appearance */
   background-color: #6c4b33;
   color: #b2d132;
+
+  /* text properties */
   font-weight: bold;
   font-size: 1.5rem;  /* TODO: handle font size */
+  text-align: center;
+
+  /* box properties */
   padding: 10px;
   border-radius: 20px;
 
   /* alignment */
-  text-align: center;
   display: flex;
   align-items: center;
 }
@@ -175,6 +180,10 @@ main {
 .tile:hover {
   background-color: #b2d132;
   color: #062836;
+}
+
+.tile p {
+  width: 100%;
 }
 
 /* FORM STYLES ---------------------------------------------------------------*/

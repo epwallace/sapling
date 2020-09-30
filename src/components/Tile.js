@@ -4,7 +4,7 @@ const Tile = (props) => {
 
     return(
         <button onClick={props.clickHandler} className="tile">
-            {props.plantName}
+            <p>{props.plantName}</p>
         </button>
     )
 }
