@@ -279,6 +279,39 @@ form button {
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   white-space: pre-line;
+  height: 100%;
+}
+
+.plantPage .buttonsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.plantPage button {
+  /* appearance */
+  background-color: #062836;
+  color: #b2d132;
+
+  /* text */
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1rem, 0.8182rem + 1.1364vw, 1.5rem);
+
+  /* box properties */
+  width: max-content;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 20px;
+  box-shadow: 3px 3px 0 0 #b2d132;
+
+  /* positioning */
+  display: block;
+}
+
+.plantPage button:hover {
+  background-color: #b2d132;
+  color: #062836;
+  box-shadow: 5px 5px 0 0 #062836;
 }
 
 /* FOOTER STYLES -------------------------------------------------------------*/

@@ -7,9 +7,15 @@ const PlantPage = (props) => {
             <h3>{plantName}</h3>
             <p>{plantNotes}</p>
 
-            <button onClick={props.handleDelete} className="deleteButton">
-                delete me
-            </button>
+            <div className="buttonsContainer">
+                <button onClick={props.handleEdit} className="editButton">
+                    edit this plant
+                </button>
+
+                <button onClick={props.handleDelete} className="deleteButton">
+                    delete this plant
+                </button>
+            </div>
 
         </section>
     )
