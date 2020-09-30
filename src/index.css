@@ -103,6 +103,31 @@ h2::before {
   z-index: -1;
 }
 
+.addPlantButton {
+  /* appearance */
+  background-color: #6c4b33;
+  color: #b2d132;
+
+  /* text */
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.8rem, 1.0000rem + 5.0000vw, 4rem);
+
+  /* box properties */
+  width: max-content;
+  padding: 20px;
+  border-radius: 20px;
+
+  /* positioning */
+  display: block;
+  margin: 0 auto;
+}
+
+.addPlantButton:hover {
+  background-color: #b2d132;
+  color: #062836;
+  box-shadow: 5px 5px 0 0 #6c4b33;
+}
+
 /* MAIN SECTION STYLES -------------------------------------------------------*/
 main {
   flex: 1 0 200px;

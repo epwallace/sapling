@@ -174,23 +174,18 @@ class App extends Component {
                 )
               })}
             </div>
-          </section>
 
-          <section className="addNewPlant wrapper">
-            <h2>add a plant</h2>
-            
-            {/* TODO: style this button */}
             {/* launch form for submitting a new plant */}
-            <button onClick={() => {
+            <button className='addPlantButton' onClick={() => {
               // TODO: write a proper handler for this button
               this.setState({
                 modalActive: true,
                 modalType: 'newPlant'
               })
-            }}>click</button>
-
+            }}>
+              add a plant
+            </button>
           </section>
-
         </main>
         <Footer />
       </div>
