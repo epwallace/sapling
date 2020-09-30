@@ -64,11 +64,8 @@ class App extends Component {
       plantNotes: this.state.inputNotes,
     });
 
-    // clear input from text boxes
-    this.setState({
-      inputName: '',
-      inputNotes: '',
-    })
+    // reset state and close modal
+    this.handleCloseModal();
   };
 
   handleChange = (event) => {
