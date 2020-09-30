@@ -183,8 +183,12 @@ class App extends Component {
           className='modal'
           overlayClassName='overlay'
         >
+          <button onClick={this.handleCloseModal} className='closeButton'>
+            <i class="far fa-window-close"></i>
+          </button>
           {this.getModalContent()}
         </ReactModal>
+
         <Header />
         
         <main>

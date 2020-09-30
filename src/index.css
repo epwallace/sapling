@@ -420,6 +420,15 @@ footer span {
   align-content: center;
 }
 
+.closeButton {
+  background-color: unset;
+  color: #b2d132;
+  font-size: 1.5rem;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+}
+
 @media (max-width: 600px) {
   .modal {
     width: 100%;
