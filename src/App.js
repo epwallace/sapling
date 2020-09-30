@@ -69,10 +69,7 @@ class App extends Component {
   }
 
   // create a new entry in firebase when user submits a completed form
-  submitNewEntry = (event) => {
-    // prevent page refresh
-    event.preventDefault();
-
+  submitNewEntry = () => {
     // connect to firebase and send user input
     const dbRef = firebase.database().ref();
     dbRef.push({
