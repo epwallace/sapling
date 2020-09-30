@@ -273,7 +273,21 @@ form button {
 }
 
 .plantPage h3 {
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 0.9545rem + 3.4091vw, 3rem);
+  width: max-content;
+  position: relative;
+  z-index: 1;
+}
+
+/* blue underline */
+.plantPage h3::before {
+  position: absolute;
+  content: '';
+  height: 15%;
+  width: 100%;
+  bottom: 15%;
+  background-color: #062836;
+  z-index: -1;
 }
 
 .plantPage p {
