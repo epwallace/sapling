@@ -93,6 +93,38 @@ class App extends Component {
     this.handleCloseModal();
   }
 
+  handleEdit = (plant) => {
+    this.setState({
+      modalType: 'editPlant',
+      inputName: this.state.currentPlant.plantName,
+      inputNotes: this.state.currentPlant.plantNotes,
+    })
+  }
+
+  handleEditSubmission = (key) => {
+    // connect to firebase and update the relevant entry
+    const dbRef = firebase.database().ref();
+    dbRef.child(key).update({
+      plantName: this.state.inputName,
+      plantNotes: this.state.inputNotes,
+    })
+
+    // restore plant page modal
+    this.setState({
+      // update currentPlant with the newest information
+      // TODO: is there a way to do this automatically?
+      currentPlant: {
+        plantName: this.state.inputName,
+        plantNotes: this.state.inputNotes,
+      },
+
+      // reset input fields and display updated plantPage
+      modalType: 'plantPage',
+      inputName: '',
+      inputNotes: '',
+    })
+  }
+
   // close modal and restore any modified state attributes to default values
   handleCloseModal = () => {
     this.setState({
@@ -118,7 +150,6 @@ class App extends Component {
           handleSubmit={this.handleSubmit}
           plantName={this.state.inputName}
           plantNotes={this.state.inputNotes}
-          key={null}
         />
       )
     } else if (modalType === 'editPlant') {
@@ -127,10 +158,9 @@ class App extends Component {
       return (
         <PlantForm
           handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          plantName={plantName}
-          plantNotes={plantNotes}
-          key={key}
+          handleSubmit={() => this.handleEditSubmission(key)}
+          inputName={this.state.inputName}
+          inputNotes={this.state.inputNotes}
         />
       )
     } else if (modalType === 'plantPage') {
@@ -138,6 +168,7 @@ class App extends Component {
         <PlantPage
           plant={this.state.currentPlant}
           handleDelete={() => this.handleDelete(this.state.currentPlant.key)}
+          handleEdit={() => this.handleEdit(this.state.currentPlant)}
         />
       )
     }

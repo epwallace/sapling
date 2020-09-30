@@ -372,6 +372,11 @@ form button {
   box-shadow: 5px 5px 0 0 #062836;
 }
 
+.plantPage button:focus {
+  outline: 2px dotted;
+  outline-offset: 10px;
+}
+
 /* FOOTER STYLES -------------------------------------------------------------*/
 footer {
   padding: 20px 0;
