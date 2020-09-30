@@ -60,6 +60,9 @@ class App extends Component {
       modalType: 'newPlant'
     })
   }
+
+  // create a new entry in firebase when user submits a completed form
+  submitNewEntry = (event) => {
     // prevent page refresh
     event.preventDefault();
 
@@ -71,9 +74,10 @@ class App extends Component {
     });
 
     // reset state and close modal
-    this.handleCloseModal();
+    this.closeModal();
   };
 
+  // update state as user types into form inputs
   handleChange = (event) => {
     this.setState ({
       [event.target.id]: event.target.value,
@@ -81,7 +85,7 @@ class App extends Component {
   };
 
   // when a user clicks a tile, launch a modal with the relevant plant entry
-  handlePlantSelection = (plant) => {
+  displayPlant = (plant) => {
     this.setState({
       currentPlant: plant,
       modalType: 'plantPage',
@@ -89,17 +93,18 @@ class App extends Component {
     })
   }
 
-  // remove an entry from the database
-  handleDelete = (key) => {
+  // remove a plant entry from the database
+  deletePlant = (key) => {
     // connect to firebase and remove entry with provided key
     const dbRef = firebase.database().ref();
     dbRef.child(key).remove();
 
     // reset state and close modal
-    this.handleCloseModal();
+    this.closeModal();
   }
-
-  handleEdit = (plant) => {
+  
+  // launches the edit modal without resetting the currently selected plant
+  displayEditForm = (plant) => {
     this.setState({
       modalType: 'editPlant',
       inputName: this.state.currentPlant.plantName,
@@ -107,7 +112,8 @@ class App extends Component {
     })
   }
 
-  handleEditSubmission = (key) => {
+  // send edited entry to firebase and reveal the updated plant page
+  submitEditedEntry = (key) => {
     // connect to firebase and update the relevant entry
     const dbRef = firebase.database().ref();
     dbRef.child(key).update({
@@ -132,7 +138,7 @@ class App extends Component {
   }
 
   // close modal and restore any modified state attributes to default values
-  handleCloseModal = () => {
+  closeModal = () => {
     this.setState({
       modalActive: false,
       modalType: '',
@@ -146,35 +152,38 @@ class App extends Component {
     })
   }
 
-  // TODO: refactor into smaller functions
+  // 
   getModalContent = () => {
     const { modalType } = this.state;
     if (modalType === 'newPlant') {
+      // return a form whose submission pushes a new entry to firebase
       return (
         <PlantForm
           handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
+          handleSubmit={this.submitNewEntry}
           plantName={this.state.inputName}
           plantNotes={this.state.inputNotes}
         />
       )
     } else if (modalType === 'editPlant') {
-      // TODO: handle editing logic; need to write handlers, deal with cancellation, etc
-      const { plantName, plantNotes, key } = this.state.currentPlant;
+      // return a form whose submission modifies the firebase entry with this key
+      const { key } = this.state.currentPlant;
       return (
         <PlantForm
           handleChange={this.handleChange}
-          handleSubmit={() => this.handleEditSubmission(key)}
+          handleSubmit={() => this.submitEditedEntry(key)}
           inputName={this.state.inputName}
           inputNotes={this.state.inputNotes}
         />
       )
     } else if (modalType === 'plantPage') {
+      // return the expanded entry for the currently selected plant
+      const { currentPlant } = this.state;
       return (
         <PlantPage
-          plant={this.state.currentPlant}
-          handleDelete={() => this.handleDelete(this.state.currentPlant.key)}
-          handleEdit={() => this.handleEdit(this.state.currentPlant)}
+          plant={currentPlant}
+          handleDelete={() => this.deletePlant(currentPlant.key)}
+          handleEdit={() => this.displayEditForm(currentPlant)}
         />
       )
     }
@@ -185,13 +194,17 @@ class App extends Component {
       <div className="App">
         <ReactModal
           isOpen={this.state.modalActive}
-          onRequestClose={this.handleCloseModal}
+          onRequestClose={this.closeModal}
           className='modal'
           overlayClassName='overlay'
         >
-          <button onClick={this.handleCloseModal} className='closeButton'>
+
+          {/* 'X' button for closing modal */}
+          <button onClick={this.closeModal} className='closeButton'>
             <i class="far fa-window-close"></i>
           </button>
+
+          {/* modal content is dynamically determined by the state */}
           {this.getModalContent()}
         </ReactModal>
 
@@ -205,9 +218,9 @@ class App extends Component {
               {this.state.plants.map((plant) => {
                 return(
                   <Tile
-                  key={plant.key}
-                  plantName={plant.plantName}
-                  clickHandler={() => this.handlePlantSelection(plant)}
+                    key={plant.key}
+                    plantName={plant.plantName}
+                    clickHandler={() => this.displayPlant(plant)}
                   />
                 )
               })}
@@ -219,6 +232,7 @@ class App extends Component {
             </button>
           </section>
         </main>
+
         <Footer />
       </div>
     );
