@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 const PlantPage = (props) => {
-    const {key, plantName, plantNotes} = props.plant;
+    const {plantName, plantNotes} = props.plant;
     return(
         <section className="plantPage">
             <h3>{plantName}</h3>
