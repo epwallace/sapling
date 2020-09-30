@@ -111,9 +111,9 @@ h2 {
 h2::before {
   position: absolute;
   content: '';
-  height: 20%;
+  height: 15%;
   width: 100%;
-  bottom: 0;
+  bottom: 20%;
   background-color: #6c4b33;
   z-index: -1;
 }
