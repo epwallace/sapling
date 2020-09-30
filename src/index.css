@@ -33,6 +33,11 @@ body {
   grid-template-rows: auto auto auto;
 }
 
+/* transition background color when hovering on any button */
+button:hover {
+  transition: background-color 500ms linear;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
