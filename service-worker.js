@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/sapling/precache-manifest.cfcc9d0193525c5cea6f49baf893ec71.js"
+  "/sapling/precache-manifest.686c421e6e2a2e96b7e2c0911acb854d.js"
 );
 
 self.addEventListener('message', (event) => {
