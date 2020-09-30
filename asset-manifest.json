@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/sapling/static/css/main.f984b604.chunk.css",
+    "main.js": "/sapling/static/js/main.7a2af0e4.chunk.js",
+    "main.js.map": "/sapling/static/js/main.7a2af0e4.chunk.js.map",
+    "runtime-main.js": "/sapling/static/js/runtime-main.73b09f45.js",
+    "runtime-main.js.map": "/sapling/static/js/runtime-main.73b09f45.js.map",
+    "static/js/2.7faebfcd.chunk.js": "/sapling/static/js/2.7faebfcd.chunk.js",
+    "static/js/2.7faebfcd.chunk.js.map": "/sapling/static/js/2.7faebfcd.chunk.js.map",
+    "index.html": "/sapling/index.html",
+    "precache-manifest.9c4cac6b862c9c6565ffb546c7688c03.js": "/sapling/precache-manifest.9c4cac6b862c9c6565ffb546c7688c03.js",
+    "service-worker.js": "/sapling/service-worker.js",
+    "static/css/main.f984b604.chunk.css.map": "/sapling/static/css/main.f984b604.chunk.css.map",
+    "static/js/2.7faebfcd.chunk.js.LICENSE.txt": "/sapling/static/js/2.7faebfcd.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/sapling/static/media/flower.e0c7be96.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.73b09f45.js",
+    "static/js/2.7faebfcd.chunk.js",
+    "static/css/main.f984b604.chunk.css",
+    "static/js/main.7a2af0e4.chunk.js"
+  ]
+}
