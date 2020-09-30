@@ -391,12 +391,26 @@ footer {
 
 /* 'made by' text */
 footer p {
+  color: #b2d132;
+
   font-size: clamp(1rem, 0.6364rem + 2.2727vw, 2rem);
   text-align: center;
+
+  margin-top: 50px;
 }
 
 footer span {
   white-space: nowrap;
+}
+
+footer a {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-thickness: 1px;
+}
+
+footer a:hover {
+  color: #6c4b33;
 }
 
 /* MODAL STYLES --------------------------------------------------------------*/
@@ -439,6 +453,7 @@ footer span {
   .plantPage,
   form {  
     margin-top: 25px;
+    padding-bottom: 25px;
   }
 }
 
