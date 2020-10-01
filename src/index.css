@@ -18,6 +18,7 @@ a {
   color: inherit;
 }
 
+/* GENERAL STYLES ------------------------------------------------------------*/
 body {
   font-family: 'Raleway', sans-serif;
   font-size: 125%;
@@ -31,6 +32,24 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto auto;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.wrapper {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* give content more space on smaller screens */
+@media (max-width: 800px) {
+  .wrapper {
+    width: 90%;
+  }
 }
 
 /* BUTTON STYLES -------------------------------------------------------------*/
@@ -81,29 +100,10 @@ body {
   transition: top 400ms linear, box-shadow 400ms linear;
 }
 
-
 /* add focus outline to buttons for accessible keyboard navigation */
 button:focus {
   outline: 2px dotted;
   outline-offset: 10px;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-.wrapper {
-  width: 80%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* give content more space on smaller screens */
-@media (max-width: 800px) {
-  .wrapper {
-    width: 90%;
-  }
 }
 
 /* HEADER & HEADING STYLES --------------------------------------------------*/
@@ -137,44 +137,64 @@ header p {
 
 /* brown underline */
 h1::before {
-  position: absolute;
+  /* appearance */
+  background-color: #6c4b33;
+
+  /* box properties */
   content: '';
-  height: 10%;
   width: calc(100% + 20px);
+  height: 10%;
+
+  /* positioning */
+  position: absolute;
   bottom: 20%;
   left: -10px;
-  background-color: #6c4b33;
   z-index: -1;
 }
 
 /* flower svg (dot on the 'i') */
 h1::after {
+  /* appearance */
   background: url(./img/flower.svg);  /* icon from flaticon.com */
+
+  /* box properties */
+  content: '';
   width: clamp(1rem, 0.1429rem + 4.7619vw, 3rem);
   height: clamp(1rem, 0.1429rem + 4.7619vw, 3rem);
+
+  /* positioning */
   position: absolute;
-  content: '';
   left: 55.2%;
   top: 19%;
 }
 
 h2 {
+  /* text */
   font-family: 'Montserrat', sans-serif;
   /* clamp technique inspired by https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/ */
   font-size: clamp(1.8rem, 1.0000rem + 5.0000vw, 4rem);
+
+  /* box properties */
+  width: max-content;
+
+  /* positioning */
   position: relative;
   margin-top: 20px;
-  width: max-content;
 }
 
 /* brown underline */
 h2::before {
-  position: absolute;
-  content: '';
-  height: 15%;
-  width: 100%;
-  bottom: 20%;
+  /* appearance */
   background-color: #6c4b33;
+  
+  /* box properties */
+  content: '';
+  width: 100%;
+  height: 15%;
+
+  /* positioning */
+  position: absolute;
+  bottom: 20%;
   z-index: -1;
 }
 
@@ -202,7 +222,6 @@ h2::before {
   }
 }
 
-
 /* MAIN SECTION STYLES -------------------------------------------------------*/
 main {
   flex: 1 0 200px;
@@ -210,14 +229,17 @@ main {
 }
 
 .tilesContainer {
+  /* grid properties */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 200px;
   grid-gap: 50px;
+
+  /* box properties */
   margin: 100px 0;
 }
 
-/* adjust tile container grid layout on smaller screens */
+/* adjust tile container grid layouts on smaller screens */
 @media (max-width: 800px) {
   .tilesContainer {
     grid-template-columns: 1fr 1fr;
@@ -232,7 +254,7 @@ main {
 }
 
 .tile {
-  /* text properties */
+  /* text */
   font-weight: bold;
   font-size: clamp(1rem, 0.8182rem + 1.1364vw, 1.5rem);
 }
@@ -252,9 +274,12 @@ form button {
 
 input,
 textarea {
+  /* appearance */
   background-color: rgba(6, 40, 54, 0.3);
   color: #b2d132;
   border: 3px solid;
+
+  /* text */
   font-family: courier;
   font-weight: bold;
 }
@@ -270,7 +295,7 @@ form button {
   justify-self: center;
 }
 
-/* grid positioning */
+/* all grid positioning for forms done here */
 form {
   display: grid;
   grid-template-columns: 1fr 20px 1fr 1fr 1fr;
@@ -341,20 +366,30 @@ form button {
 
 
 .plantPage h3 {
+  /* text */
   font-size: clamp(1.5rem, 0.9545rem + 3.4091vw, 3rem);
+
+  /* box properties */
   width: max-content;
+
+  /* positioning */
   position: relative;
   z-index: 1;
 }
 
 /* blue underline */
 .plantPage h3::before {
-  position: absolute;
+  /* appearance */
+  background-color: #062836;
+
+  /* box properties */
   content: '';
   height: 15%;
   width: 100%;
+
+  /* positioning */
+  position: absolute;
   bottom: 15%;
-  background-color: #062836;
   z-index: -1;
 }
 
@@ -384,9 +419,9 @@ form button {
 
 /* FOOTER STYLES -------------------------------------------------------------*/
 footer {
+  grid-row: 3;
   padding: 20px 0;
   width: 100%;
-  grid-row: 3;
 }
 
 /* 'made by' text */
@@ -395,7 +430,7 @@ footer p {
   color: #b2d132;
   
   /* text */
-  font-size: clamp(1rem, 0.6364rem + 2.2727vw, 2rem);
+  font-size: clamp(1rem, 0.8182rem + 1.1364vw, 1.5rem);
   text-align: center;
   word-break: break-all;
 
@@ -404,6 +439,8 @@ footer p {
 }
 
 footer a {
+  display: inline-block;
+  width: max-content;
   text-decoration-line: underline;
   text-decoration-style: wavy;
   text-decoration-thickness: 1px;
