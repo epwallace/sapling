@@ -8,7 +8,7 @@ import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 import PlantForm from './components/PlantForm.js';
 import PlantPage from './components/PlantPage.js';
-import Tile from './components/Tile.js';
+import TilesContainer from './components/TilesContainer.js';
 
 // set root element so react-modal can apply aria-hidden properly
 ReactModal.setAppElement('#root');
@@ -215,17 +215,7 @@ class App extends Component {
             <h2>your collection</h2>
 
             {/* --- tiles for each plant entry are rendered here --- */}
-            <div className='tilesContainer'>
-              {this.state.plants.map((plant) => {
-                return(
-                  <Tile
-                    key={plant.key}
-                    plantName={plant.plantName}
-                    clickHandler={() => this.displayPlant(plant)}
-                  />
-                )
-              })}
-            </div>
+            <TilesContainer plants={this.state.plants} clickHandler={this.displayPlant} />
 
             {/* --- 'add a new plant' button --- */}
             <button className='addPlantButton raisedButton brownButton' onClick={this.startNewEntry}>
