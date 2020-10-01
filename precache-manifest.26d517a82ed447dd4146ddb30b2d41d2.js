@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7b13056a4e6b268662d92b3283e7955b",
+    "revision": "66b8a749d665280dba144ae4213a38b6",
     "url": "/sapling/index.html"
   },
   {
