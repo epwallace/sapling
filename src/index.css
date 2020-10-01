@@ -391,16 +391,16 @@ footer {
 
 /* 'made by' text */
 footer p {
+  /* appearance */
   color: #b2d132;
-
+  
+  /* text */
   font-size: clamp(1rem, 0.6364rem + 2.2727vw, 2rem);
   text-align: center;
+  word-break: break-all;
 
+  /* box properties */
   margin-top: 50px;
-}
-
-footer span {
-  white-space: nowrap;
 }
 
 footer a {
@@ -445,9 +445,14 @@ footer span {
 }
 
 .closeButton {
+  /* appearance */
   background-color: unset;
   color: #b2d132;
+  
+  /* text */
   font-size: 1.5rem;
+
+  /* positioning */
   position: fixed;
   right: 20px;
   top: 20px;
@@ -462,7 +467,7 @@ footer span {
   }
 }
 
-
+/* adjust modal size/whitespace on mobile to reduce congestion */
 @media (max-width: 600px) {
   .modal {
     width: 100%;
