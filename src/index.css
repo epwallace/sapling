@@ -413,6 +413,11 @@ footer a:hover {
   color: #6c4b33;
 }
 
+/* force spanned groups of words to line-break together */
+footer span {
+  white-space: nowrap;
+}
+
 /* MODAL STYLES --------------------------------------------------------------*/
 .modal {
   /* appearance */
