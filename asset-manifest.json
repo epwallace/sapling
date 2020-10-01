@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/sapling/static/css/main.4a418acd.chunk.css",
+    "main.css": "/sapling/static/css/main.e025e68c.chunk.css",
     "main.js": "/sapling/static/js/main.e3868a94.chunk.js",
     "main.js.map": "/sapling/static/js/main.e3868a94.chunk.js.map",
     "runtime-main.js": "/sapling/static/js/runtime-main.73b09f45.js",
@@ -8,16 +8,16 @@
     "static/js/2.7faebfcd.chunk.js": "/sapling/static/js/2.7faebfcd.chunk.js",
     "static/js/2.7faebfcd.chunk.js.map": "/sapling/static/js/2.7faebfcd.chunk.js.map",
     "index.html": "/sapling/index.html",
-    "precache-manifest.686c421e6e2a2e96b7e2c0911acb854d.js": "/sapling/precache-manifest.686c421e6e2a2e96b7e2c0911acb854d.js",
+    "precache-manifest.79f3f9fc672816b5daffcfc56778b904.js": "/sapling/precache-manifest.79f3f9fc672816b5daffcfc56778b904.js",
     "service-worker.js": "/sapling/service-worker.js",
-    "static/css/main.4a418acd.chunk.css.map": "/sapling/static/css/main.4a418acd.chunk.css.map",
+    "static/css/main.e025e68c.chunk.css.map": "/sapling/static/css/main.e025e68c.chunk.css.map",
     "static/js/2.7faebfcd.chunk.js.LICENSE.txt": "/sapling/static/js/2.7faebfcd.chunk.js.LICENSE.txt",
     "static/media/index.css": "/sapling/static/media/flower.e0c7be96.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.73b09f45.js",
     "static/js/2.7faebfcd.chunk.js",
-    "static/css/main.4a418acd.chunk.css",
+    "static/css/main.e025e68c.chunk.css",
     "static/js/main.e3868a94.chunk.js"
   ]
 }
