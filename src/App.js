@@ -3,6 +3,9 @@ import firebase from './firebase.js';
 import ReactModal from 'react-modal';
 import './App.css';
 
+// providers
+import UserProvider from './providers/UserProvider'
+
 // layout components
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
@@ -189,46 +192,49 @@ class App extends Component {
 
   render() { 
     return (
-      <div className="App">
-        {/* --- modal section --- */}
-        <ReactModal
-          isOpen={this.state.modalActive}
-          onRequestClose={this.closeModal}
-          className='modal'
-          overlayClassName='overlay'
-        >
+      <UserProvider>
+        <div className="App">
+          {/* --- modal section --- */}
+          <ReactModal
+            isOpen={this.state.modalActive}
+            onRequestClose={this.closeModal}
+            className='modal'
+            overlayClassName='overlay'
+          >
 
-          {/* 'X' button for closing modal */}
-          <button onClick={this.closeModal} className='closeButton'>
-            <i className="far fa-window-close"></i>
-          </button>
-
-          {/* modal content is dynamically determined by the state */}
-          {this.getModalContent()}
-        </ReactModal>
-
-        {/* --- header section --- */}
-        <Header />
-        
-        {/* --- main section --- */}
-        <main>
-            <SignIn />
-          <section className="collection wrapper">
-            <h2>your collection</h2>
-
-            {/* --- tiles for each plant entry are rendered here --- */}
-            <TilesContainer plants={this.state.plants} clickHandler={this.displayPlant} />
-
-            {/* --- 'add a new plant' button --- */}
-            <button className='addPlantButton raisedButton brownButton' onClick={this.startNewEntry}>
-              add a new plant
+            {/* 'X' button for closing modal */}
+            <button onClick={this.closeModal} className='closeButton'>
+              <i className="far fa-window-close"></i>
             </button>
-          </section>
-        </main>
 
-        {/* --- footer section --- */}
-        <Footer />
-      </div>
+            {/* modal content is dynamically determined by the state */}
+            {this.getModalContent()}
+          </ReactModal>
+
+          {/* --- header section --- */}
+          <Header />
+        
+          {/* --- main section --- */}
+          <main>
+            <SignIn />
+            <section className="collection wrapper">
+              <h2>your collection</h2>
+
+              {/* --- tiles for each plant entry are rendered here --- */}
+              <TilesContainer plants={this.state.plants} clickHandler={this.displayPlant} />
+
+              {/* --- 'add a new plant' button --- */}
+              <button className='addPlantButton raisedButton brownButton' onClick={this.startNewEntry}>
+                add a new plant
+              </button>
+            </section>
+          </main>
+
+          {/* --- footer section --- */}
+          <Footer />
+        </div> 
+      </UserProvider>
+
     );
   }
 }
