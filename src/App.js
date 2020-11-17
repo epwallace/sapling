@@ -10,6 +10,7 @@ import UserProvider from './providers/UserProvider'
 import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 import SignIn from './components/SignIn.js';
+import SignUp from './components/SignUp.js';
 import PlantForm from './components/PlantForm.js';
 import PlantPage from './components/PlantPage.js';
 import TilesContainer from './components/TilesContainer.js';
@@ -216,6 +217,7 @@ class App extends Component {
         
           {/* --- main section --- */}
           <main>
+            <SignUp />
             <SignIn />
             <section className="collection wrapper">
               <h2>your collection</h2>
