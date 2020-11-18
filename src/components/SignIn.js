@@ -50,7 +50,7 @@ const SignIn = () => {
                     id='userPassword'
                     onChange={(e) => onChangeHandler(e)}
                 />
-                <button onClick={(e) => signInWithEmailAndPasswordHandler(e, email, password)}>sign in</button>
+                <button className='raisedButton greenButton' onClick={(e) => signInWithEmailAndPasswordHandler(e, email, password)}>sign in</button>
             </form>
             <span>
                 Don't have an account? <Link to='/signup'>Click here to Register</Link>

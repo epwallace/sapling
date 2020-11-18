@@ -310,6 +310,25 @@ form {
   width: 100%;
 }
 
+/* TODO: fix busted css for login */
+.login-form form {
+  margin: 0 auto;
+  display: flex !important;
+  flex-direction: column;
+  width: 80%;
+  max-width: 500px;
+}
+
+.login-form button {
+  margin: 5px auto;
+}
+
+.login-form span {
+  margin-top: 20px;
+  display: block;
+  text-align: center;
+}
+
 label[for="inputName"] {
   grid-column: 1 / span 1;
   grid-row: 1 / span 1;
