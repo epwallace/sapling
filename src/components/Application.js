@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 import Header from './Header';
+import Dashboard from './Dashboard';
 
 const Application = () => {
     const user = useContext(UserContext);
@@ -14,7 +15,7 @@ const Application = () => {
             <BrowserRouter>
                 <Route exact path='/'>
                     {user
-                        ? <p>welcome</p>
+                        ? <Dashboard />
                         : <SignIn />}
                 </Route>
                     {user
