@@ -12,7 +12,7 @@ const SignUp = () => {
         e.preventDefault();
         try {
             const {user} = await auth.createUserWithEmailAndPassword(email, password);
-            generateUserDocument(user, displayName);
+            generateUserDocument(user, {displayName});
         }
         catch(error) {
             setError('Error signing up with email and password');

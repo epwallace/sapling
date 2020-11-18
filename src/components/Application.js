@@ -18,9 +18,16 @@ const Application = () => {
                         ? <Dashboard />
                         : <SignIn />}
                 </Route>
+                <Route path='/signin'>
+                    {user
+                        ? <Redirect to='/' />
+                        : <SignIn /> }
+                </Route>
+                <Route path='/signup'>
                     {user
                         ? <Redirect to="/" />
                         : <Route path='/signup' component={SignUp} />}
+                </Route>
             </BrowserRouter>
         </div>
 

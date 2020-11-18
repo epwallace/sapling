@@ -26,12 +26,11 @@ const firebaseConfig = {
     const snapshot = await userRef.get();
 
     if (!snapshot.exists) {
-      const { email, displayName, photoURL } = user;
+      const { email, displayName } = user;
       try {
         await userRef.set({
           displayName,
           email,
-          photoURL,
           ...additionalData,
         });
       } catch (error) {
