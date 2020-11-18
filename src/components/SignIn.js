@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { auth } from '../firebase';
 
 const SignIn = () => {
@@ -51,6 +52,9 @@ const SignIn = () => {
                 />
                 <button onClick={(e) => signInWithEmailAndPasswordHandler(e, email, password)}>sign in</button>
             </form>
+            <span>
+                Don't have an account? <Link to='/signup'>Click here to Register</Link>
+            </span>
         </div>
     )
 }
