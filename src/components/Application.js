@@ -10,7 +10,7 @@ const Application = () => {
     const user = useContext(UserContext);
 
     return(
-        <div class='App'>
+        <div className='App'>
             <Header />
             <BrowserRouter>
                 <Route exact path='/'>
