@@ -1,5 +1,4 @@
 import firebase from 'firebase/app';
-import 'firebase/database'
 import 'firebase/firestore';
 import 'firebase/auth';
 
@@ -40,20 +39,26 @@ const firebaseConfig = {
     return getUserDocument(user.uid);
   };
 
-  // retrieve user document from firebase
+  // retrieve user's data from firebase
   const getUserDocument = async (uid) => {
     if (!uid) return null;
     
     try {
       const userDocument = await firestore.doc(`users/${uid}`).get();
+
+      // retrieve user's plant entries and store them in an array
+      const entriesSnapshot = await firestore.doc(`users/${uid}`).collection('entries').get();
+      let entries = [];
+      entriesSnapshot.forEach(entry => entries.push(entry.data()));
+
       return {
         uid,
         ...userDocument.data(),
+        entries
       };
     } catch (error) {
       console.error('Error fetching user', error);
     }
   };
-
 
   export default firebase;
