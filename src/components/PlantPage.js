@@ -7,7 +7,7 @@ const PlantPage = (props) => {
     let { id } = useParams();
     let history = useHistory();
 
-    const {name, notes} = user.entries.find(entry => entry.name === id);
+    const {name, notes} = user.entries.find(entry => entry.id === id);
 
     const loadEditPage = () => {
         history.push(`/plants/${id}/edit`);

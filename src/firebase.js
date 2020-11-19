@@ -47,9 +47,12 @@ const firebaseConfig = {
       const userDocument = await firestore.doc(`users/${uid}`).get();
 
       // retrieve user's plant entries and store them in an array
-      const entriesSnapshot = await firestore.doc(`users/${uid}`).collection('entries').get();
+      const entriesSnapshot = await firestore.doc(`users/${uid}`).collection('entries').orderBy('name').get();
       let entries = [];
-      entriesSnapshot.forEach(entry => entries.push(entry.data()));
+      entriesSnapshot.forEach(entry => {
+        
+        entries.push({...entry.data(), id: entry.id})
+      });
 
       return {
         uid,

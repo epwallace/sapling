@@ -21,7 +21,7 @@ const Dashboard = () => {
             <ul>
             {user.entries.map(entry => {
                 return (
-                    <li key={entry.name} onClick={() => loadPlantPage(entry.name)}>
+                    <li key={entry.id} onClick={() => loadPlantPage(entry.id)}>
                         {entry.name}
                     </li>
                 )
