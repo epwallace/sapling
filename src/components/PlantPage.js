@@ -1,18 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link, useParams, useHistory } from 'react-router-dom';
+import { UserContext } from '../providers/UserProvider';
 
 const PlantPage = (props) => {
-    const {plantName, plantNotes} = props.plant;
+    const user = useContext(UserContext);
+    let { id } = useParams();
+    let history = useHistory();
+
+    const {name, notes} = user.entries.find(entry => entry.name === id);
+
+    const loadEditPage = () => {
+        history.push(`/plants/${id}/edit`);
+    }
+
     return(
         <section className="plantPage">
-            <h3>{plantName}</h3>
-            <p>{plantNotes}</p>
+            <p><Link to='/'>Return to dashboard.</Link></p>
+            <h3>{name}</h3>
+            <p>{notes}</p>
 
             <div className="buttonsContainer">
-                <button onClick={props.handleEdit} className="raisedButton greenButton">
+                <button onClick={() => loadEditPage(id)} className="raisedButton greenButton">
                     edit this plant
                 </button>
 
-                <button onClick={props.handleDelete} className="raisedButton greenButton">
+                <button className="raisedButton greenButton">
                     delete this plant
                 </button>
             </div>
